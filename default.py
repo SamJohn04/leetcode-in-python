@@ -1,3 +1,5 @@
+# feel free to use this as a base
+
 class Solution:
     pass
 
