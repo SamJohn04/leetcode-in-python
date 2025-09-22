@@ -27,20 +27,20 @@
 
 class Solution:
     def sortVowels(self, s: str) -> str:
-        all_vowels = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u']
-        vowels_in_s = [x for x in s if x in all_vowels]
-        vowels_in_s = sorted(vowels_in_s)
+        allVowels = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u']
+        vowelsInS = [x for x in s if x in allVowels]
+        vowelsInS = sorted(vowelsInS)
         
         index = 0
-        str_as_list = []
+        strAsList = []
         for x in s:
-            if x in all_vowels:
-                str_as_list.append(vowels_in_s[index])
+            if x in allVowels:
+                strAsList.append(vowelsInS[index])
                 index += 1
             else:
-                str_as_list.append(x)
+                strAsList.append(x)
         
-        return "".join(str_as_list)
+        return "".join(strAsList)
 
 
 if __name__ == "__main__":
