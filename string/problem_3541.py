@@ -12,26 +12,26 @@
 
 class Solution:
     def maxFreqSum(self, s: str) -> int:
-        vowel_seen: bool = False
-        consonant_seen: bool = False
-        vowel_count: dict[str, int] = {}
-        consonant_count: dict[str, int] = {}
+        vowelSeen: bool = False
+        consonantSeen: bool = False
+        vowelCount: dict[str, int] = {}
+        consonantCount: dict[str, int] = {}
 
         for c in s:
             if c in 'aeiou':
-                vowel_seen = True
-                vowel_count[c] = vowel_count.get(c, 0) + 1
+                vowelSeen = True
+                vowelCount[c] = vowelCount.get(c, 0) + 1
             else:
-                consonant_seen = True
-                consonant_count[c] = consonant_count.get(c, 0) + 1
+                consonantSeen = True
+                consonantCount[c] = consonantCount.get(c, 0) + 1
 
-        if not vowel_seen and not consonant_seen:
+        if not vowelSeen and not consonantSeen:
             return 0
-        if not vowel_seen:
-            return max(consonant_count.values())
-        if not consonant_seen:
-            return max(vowel_count.values())
-        return max(vowel_count.values()) + max(consonant_count.values())
+        if not vowelSeen:
+            return max(consonantCount.values())
+        if not consonantSeen:
+            return max(vowelCount.values())
+        return max(vowelCount.values()) + max(consonantCount.values())
 
 
 if __name__ == "__main__":

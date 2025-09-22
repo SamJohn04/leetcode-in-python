@@ -23,27 +23,27 @@
 
 class Solution:
     def minimumTeachings(self, n: int, languages: list[list[int]], friendships: list[list[int]]) -> int:
-        friends_cannot_talk = set()
+        friendsCannotTalk = set()
 
         for friends in friendships:
-            can_communicate = False
-            languages_of_first_friend = set(languages[friends[0] - 1])
+            canCommunicate = False
+            languagesOfFirstFriend = set(languages[friends[0] - 1])
             for language in languages[friends[1] - 1]:
-                if language in languages_of_first_friend:
-                    can_communicate = True
+                if language in languagesOfFirstFriend:
+                    canCommunicate = True
                     break
-            if not can_communicate:
-                friends_cannot_talk.add(friends[0] - 1)
-                friends_cannot_talk.add(friends[1] - 1)
+            if not canCommunicate:
+                friendsCannotTalk.add(friends[0] - 1)
+                friendsCannotTalk.add(friends[1] - 1)
 
-        max_already_know = 0
-        already_know = [0] * (n + 1)
-        for friend in friends_cannot_talk:
+        maxAlreadyKnow = 0
+        alreadyKnow = [0] * (n + 1)
+        for friend in friendsCannotTalk:
             for language in languages[friend]:
-                already_know[language] += 1
-                max_already_know = max(already_know[language], max_already_know)
+                alreadyKnow[language] += 1
+                maxAlreadyKnow = max(alreadyKnow[language], maxAlreadyKnow)
 
-        return len(friends_cannot_talk) - max_already_know
+        return len(friendsCannotTalk) - maxAlreadyKnow
 
 
 if __name__ == "__main__":
